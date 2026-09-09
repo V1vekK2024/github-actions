@@ -1,0 +1,14 @@
+name: Validate files
+on: push
+jobs:
+    validate-file:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get the code
+              uses: actions/checkout@v4
+            
+            - name: Validate index.js
+              run: test -f index.js        
+
+            - name: Validate index.html
+              run: test -f index.html
