@@ -1,0 +1,33 @@
+name: jobs test files
+on: push
+jobs:
+    validate-html:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get the code
+              uses: actions/checkout@v4     
+
+            - name: Validate index.html
+              run: test -f index.html
+
+    validate-javascript:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get the code
+              uses: actions/checkout@v4
+            
+            - name: Validate index.js
+              run: test -f index.js        
+    
+    validate-code:
+        needs: [validate-html, validate-javascript]
+        runs-on: ubuntu-latest
+        steps:
+            - name: get the code
+              uses: actions/checkout@v4
+            
+            - name: Validate index.js
+              run: node --check index.js        
+
+            - name: Validate index.html
+              run: npx htmlint index.html
