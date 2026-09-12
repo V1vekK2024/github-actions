@@ -9,5 +9,5 @@ jobs:
               run: echo "hellow this is firs working in githubh action"
             - name: Bye Github action
               run: echo  "bye github"
-            - name: fail job intentionally
-              run: "exit 1"
+            # - name: fail job intentionally
+            #   run: "exit 1"
