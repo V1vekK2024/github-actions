@@ -20,7 +20,7 @@ jobs:
               run: test -f index.js        
     
     validate-code:
-        needs: [validate-html, validate-javascript]
+        
         runs-on: ubuntu-latest
         steps:
             - name: get the code
