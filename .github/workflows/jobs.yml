@@ -1,5 +1,9 @@
 name: jobs test files
-on: push
+on: 
+    workflow_run:
+        workflows: [First Workflow]
+        types:
+            - completed
 jobs:
     validate-html:
         runs-on: ubuntu-latest
